@@ -1,0 +1,19 @@
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    CYGWIN*)    machine=Cygwin;;
+    MINGW*)     machine=MinGw;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+
+
+if [ $machine = "Mac" ]; then
+    chmod +x ./.flyai_darwin
+	./.flyai_darwin "$@"
+fi
+
+if [ $machine = "Linux" ]; then
+    chmod +x ./.flyai_linux
+	./.flyai_linux "$@"
+fi

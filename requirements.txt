@@ -1,0 +1,5 @@
+gensim
+flyai
+numpy
+Pillow
+tensorflow
